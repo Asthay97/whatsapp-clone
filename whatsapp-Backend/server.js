@@ -10,15 +10,15 @@ const app = express();
 const port = process.env.PORT || 9000;
 
 const pusher = new Pusher({
-  appId: "1248847",
-  key: "5b5e704f50e3ed6470d2",
-  secret: "57cd2aae46833efb770c",
-  cluster: "ap2",
+  appId: "<copy app id from pusher>",
+  key: "<copy key from pusher>",
+  secret: "<copy secret from pusher>",
+  cluster: "<copy cluster from pusher>",
   useTLS: true
 });
 
 pusher.trigger("my-channel", "my-event", {
-  message: "hello world"
+  message: "hello"
 });
 
 // middleware
