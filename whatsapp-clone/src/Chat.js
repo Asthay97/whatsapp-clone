@@ -14,12 +14,12 @@ function Chat({messages}) {
 
         await axios.post('/messages/new', {
             "message":input,
-            "name": "DEMO APP",
+            "name": "You",
             "timestamp": "Just now!",
-            "received": false,
+            "received": true,
         });
 
-        setInput('');
+        setInput("");
     };
 
     return (
@@ -43,20 +43,25 @@ function Chat({messages}) {
                 </div>
             </div>
             <div className="chat__body">
-                {messages.map((message) => {
+                
+                {messages.map((message) => (
                     <p className={`chat__message ${message.received && "chat__receiver"}`}>
                     <span className="chat__name">{message.name}</span>
-                    ${message.message}
+                    {message.message}
                     <span className="chat__timestamp">
                         {message.timestamp}
                     </span>
                     </p>
-                })}         
+                ))}         
             </div>
+
             <div className="chat__footer">
             <InsertEmoticonIcon />
             <form>
-                <input value={input} onChange={e => setInput(e.target.value)} placeholder="Type a message"
+                <input 
+                value={input} 
+                onChange={(e) => setInput(e.target.value)} 
+                placeholder="Type a message"
                 type="text"
                 />
                 <button onClick={sendMessage} type="submit">
@@ -69,4 +74,4 @@ function Chat({messages}) {
     )
 }
 
-export default Chat
+export default Chat;

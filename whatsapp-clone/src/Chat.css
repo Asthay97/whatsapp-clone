@@ -1,17 +1,17 @@
 .chat{
     display: flex;
     flex-direction: column;
-    flex-direction: 0.65;
+    flex: 0.65;
 }
 
-.chat__header{
+.chat__header {
     padding: 20px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid lightgray;
 }
 
-.chat__headerInfo{
+.chat__headerInfo {
     flex: 1;
     padding-left: 20px;
 }

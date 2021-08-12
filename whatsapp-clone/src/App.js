@@ -8,9 +8,10 @@ import axios from './axios';
 
 function App() {
   const [messages, setMessages] = useState([]);
+
   useEffect(() => {
-    axios.get('./messages/sync')
-    .then(response =>{
+    axios.get('/messages/sync')
+    .then((response) =>{
       setMessages(response.data);
     })
   }, []);
@@ -22,6 +23,7 @@ function App() {
 
     const channel = pusher.subscribe('messages');
     channel.bind('inserted', (newMessage) => {
+      alert(JSON.stringify(newMessage));
       setMessages([...messages, newMessage]);
     });
 
