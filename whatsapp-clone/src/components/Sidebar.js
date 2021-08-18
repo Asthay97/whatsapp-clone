@@ -36,8 +36,8 @@ const Sidebar = (messages) => {
 
 
     useEffect(() => {
-        const pusher2 = new Pusher('77bfb37eb1ed3c1f5728', {
-            cluster: 'eu'
+        const pusher2 = new Pusher('<enter your pusher id>', {
+            cluster: '<enter the cluster>'
         });
         const channel2 = pusher2.subscribe('rooms');
         
