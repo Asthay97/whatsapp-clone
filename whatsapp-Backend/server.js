@@ -10,7 +10,7 @@ import cors from "cors";
 const app = express();
 const port = process.env.PORT || 9000;
 const connection_url =
-  "mongodb+srv://admin1:admin1@cluster0.axztl.mongodb.net/whatsappdb?retryWrites=true&w=majority";
+  "<enter your mongo db url>";
 
 const pusher = new Pusher({
 <<<<<<< HEAD
