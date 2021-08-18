@@ -1,15 +1,34 @@
-.app{
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    background-color: #dadbd3;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.app__body{
-    display: flex;
-    background-color: #ededed;
-    margin-top: -50px;
-    height: 90vh;
-    width: 90vw;
-    box-shadow: -1px 4px 20px -6px rgb(0, 0, 0.75);
+
+.app {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-image: url(whatsapp_background5.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  overflow: hidden;
+  /* resize: both; */
+  /* height: 500px; */
 }
- 
+
+.app-body {
+  display: flex;
+  background-color: #ededed;
+  margin-top: 8px;
+  height: 97vh;
+  width: 72vw;
+  box-shadow: -1px 4px 20px -6px rgb(24, 24, 24);
+}
+
+@media (max-width: 580px) {
+  .app-body,
+  .app {
+    width: fit-content;
+  }
+}

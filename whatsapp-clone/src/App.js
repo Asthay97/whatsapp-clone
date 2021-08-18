@@ -1,49 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
-import Sidebar from './Sidebar';
-import Chat from './Chat';
-import Pusher from 'pusher-js';
-import React, {useEffect, useState} from 'react';
-import axios from './axios';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Chat from "./components/Chat";
+import Sidebar from "./components/Sidebar";
+import Pusher from "pusher-js";
+import axios from "./Axios";
 
-function App() {
+import "./App.css";
+import Login from "./components/Login";
+import { useStateValue } from "./StateProvider";
+import Welcome from "./components/Welcome";
+
+const App = () => {
+  const [{ user }, dispatch] = useStateValue();
+
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    axios.get('/messages/sync')
-    .then((response) =>{
-      setMessages(response.data);
-    })
+    axios.get("/messages/sync").then((res) => {
+      setMessages(res.data);
+    });
   }, []);
 
-  useEffect(()=>{
-    const pusher = new Pusher('5b5e704f50e3ed6470d2', {
-      cluster: 'ap2'
+  useEffect(() => {
+    const pusher = new Pusher("5b5e704f50e3ed6470d2", {
+      cluster: "ap2",
     });
+    const channel = pusher.subscribe("messages");
 
-    const channel = pusher.subscribe('messages');
-    channel.bind('inserted', (newMessage) => {
-      alert(JSON.stringify(newMessage));
+    channel.bind("inserted", (newMessage) => {
       setMessages([...messages, newMessage]);
     });
 
-    return () =>{
+    return () => {
       channel.unbind_all();
       channel.unsubscribe();
     };
-
   }, [messages]);
+
+  console.log(window.innerWidth);
 
   return (
     <div className="app">
-      <div className="app__body">
-      {/* sidebar */}
-      <Sidebar/>
-      {/* chat */}
-      <Chat messages={messages} />
-      </div>
+      {!user ? (
+        <Login />
+      ) : (
+        <div className="app-body">
+          <Router>
+            <Sidebar messages={messages} />
+            <Switch>
+              <Route path="/rooms/:ROOMID">
+                <Chat messages={messages} />
+              </Route>
+              <Route path="/">
+                <Welcome />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default App;

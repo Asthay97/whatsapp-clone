@@ -1,0 +1,54 @@
+.sidebarChat {
+  display: flex;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.sidebarChat:hover {
+  background-color: #ebebeb;
+}
+
+.sidebarChat-info {
+  /* display: flex; */
+  /* margin-left: 15px; */
+}
+
+.sidebarChat-info > h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.sidebarChat-info > p {
+  font-size: 14px;
+  margin-left: 0px;
+  /* color: darkgray; */
+}
+
+.sidebarChat-info {
+  margin-left: 15px;
+}
+
+.add-btn {
+  width: fit-content;
+  margin: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0a8d48;
+}
+
+.add-btn > .MuiSvgIcon-root {
+  color: white;
+  font-size: 32px;
+  padding: 0 !important;
+}
+
+.add-btn:hover {
+  background-color: #056e36;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
