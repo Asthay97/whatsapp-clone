@@ -21,15 +21,9 @@ const App = () => {
     });
   }, []);
 
-<<<<<<< HEAD
-  useEffect(() => {
-    const pusher = new Pusher("5b5e704f50e3ed6470d2", {
-      cluster: "ap2",
-=======
   useEffect(()=>{
     const pusher = new Pusher('<add from javascript code in pusher tool>', {
       cluster: 'ap2'
->>>>>>> e347bd64d1488a74896d34cc1a6aaca69b79e490
     });
     const channel = pusher.subscribe("messages");
 
