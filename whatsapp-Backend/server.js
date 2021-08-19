@@ -13,20 +13,6 @@ const connection_url =
   "<enter your mongo db url>";
 
 const pusher = new Pusher({
-<<<<<<< HEAD
-  appId: "1248847",
-  key: "5b5e704f50e3ed6470d2",
-  secret: "57cd2aae46833efb770c",
-  cluster: "ap2",
-  useTLS: true,
-});
-
-// pusher.trigger("my-channel", "my-event", {
-//   message: "hello world",
-// });
-
-//Middleware
-=======
   appId: "<copy app id from pusher>",
   key: "<copy key from pusher>",
   secret: "<copy secret from pusher>",
@@ -34,10 +20,6 @@ const pusher = new Pusher({
   useTLS: true
 });
 
-pusher.trigger("my-channel", "my-event", {
-  message: "hello"
-});
->>>>>>> e347bd64d1488a74896d34cc1a6aaca69b79e490
 
 app.use(express.json());
 app.use(cors());
@@ -47,7 +29,6 @@ app.use(cors());
 =======
 // DB config
 const connection_url = "<paste ur mongo connection string here>";
->>>>>>> e347bd64d1488a74896d34cc1a6aaca69b79e490
 
 mongoose.connect(connection_url, {
   useCreateIndex: true,
