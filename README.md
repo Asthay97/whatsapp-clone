@@ -9,13 +9,17 @@
 
 ### Steps to run on local:
 1. Clone the project using `https://github.com/Asthay97/whatsapp-clone.git` command in your terminal.
-2. To run the backend, copy the Mongo connection url and ensure ur ip is whitelisted in mongodb.
-3. Go to backend project directory using `cd whatsapp-Backend`
-4. Use `npm i` to install all npm dependencies
-5. Run using command `node server.js`
-6. Go to the project frontend directory using `cd whatsapp-clone`
-7. Use `npm i` to install all npm dependencies
-8. To run the frontend application on localhost use `npm start` command.
+2. To run the backend and frontend, 
+    - copy the Mongo connection url and ensure ur ip is whitelisted in mongodb.
+    - edit and paste : src/axios: baseUrl
+    -                 : firebase.js -> config
+    -                 : Backend/server/pusher -> config
+4. Go to backend project directory using `cd whatsapp-Backend`
+5. Use `npm i` to install all npm dependencies
+6. Run using command `node server.js`
+7. Go to the project frontend directory using `cd whatsapp-clone`
+8. Use `npm i` to install all npm dependencies
+9. To run the frontend application on localhost use `npm start` command.
 
 - The frontend application runs (in development mode) `http://localhost:3000` in the browser and backend on `http://localhost:9000`.
 
